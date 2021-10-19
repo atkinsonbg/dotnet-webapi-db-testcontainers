@@ -3,7 +3,7 @@ This repo demonstrates how you can mock all your downstream dependencies includi
 
 This demo showcases the following functionality:
 
-- You can call the API with a user's EID and get:
+- You can call the API with a user's Userid and get:
     - A report from GitHub on the number of PRs, Commits, and Comments the user has done
     - Save a generated report to S3
     - Retrieve a saved report from S3
