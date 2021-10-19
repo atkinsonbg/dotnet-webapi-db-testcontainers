@@ -1,4 +1,4 @@
-# Ephemeral DB, APIs, and AWS for Developing and Testing: Using Docker & TestContainers to Mock Depenedencies
+# Using Docker & TestContainers to Mock Depenedencies
 This repo demonstrates how you can mock all your downstream dependencies including databases, external APIs and even AWS. It tackles running a Postgres database, that is seeded with data each time, providing you an exact copy on each run. It uses Simple Mock Server, a Docker container that can provide mocked responses to any external API call you need. Finally it uses LocalStack, an open-source container that contains a mocked AWS environment that can be seeded with resources. With this setup, you can more quickly develop and test locally against all your dependencies with ease.
 
 This demo showcases the following functionality:
