@@ -1,0 +1,4 @@
+FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine3.14
+
+WORKDIR /csharp/Projector
+ENTRYPOINT ["dotnet", "watch", "--project", "dotnet-testcontainers-poc.csproj", "run"]

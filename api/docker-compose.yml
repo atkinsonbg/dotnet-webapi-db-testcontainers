@@ -1,0 +1,64 @@
+version: "3"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.localdev
+    volumes:
+      - ./:/csharp/Projector
+    networks: 
+      - localdev
+    environment:
+      CONNECTION_STRING: Host=dotnet-testcontainers-poc-database;Database=testcontainer-db;Username=postgres
+      DATABASE_URL: postgresql://postgres@dotnet-testcontainers-poc-database:5432/testcontainer-db
+      AWS_PROFILE: stack-profile
+      ENVIRONMENT: Development
+      GITHUB_BASE_URL: http://domain_mockserver:5000
+    ports:
+      - 5000:5000
+  database:
+    container_name: dotnet-testcontainers-poc-database
+    image: postgres:11.6-alpine
+    environment:
+      POSTGRES_DB: testcontainer-db
+    volumes:
+      - ../fixtures/sql/init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks: 
+      - localdev
+    ports:
+      - 5432:5432
+  mockserver:
+    image: atkinsonbg/mock-server:0.1
+    container_name: domain_mockserver
+    networks: 
+      - localdev
+    ports:
+      - 6000:5000
+    volumes:
+      - ../fixtures/mocks:/api/Mocks
+  localstack:
+    image: localstack/localstack:latest
+    container_name: domain_localstack
+    user: localstack
+    networks: 
+      - localdev
+    ports: 
+      - 4566:4566
+    environment: 
+      - SERVICES=s3
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes: 
+      - ../fixtures/localstack:/tmp/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+  dozzle:
+    image: amir20/dozzle:latest
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 8888:8080
+networks:
+  localdev:
+

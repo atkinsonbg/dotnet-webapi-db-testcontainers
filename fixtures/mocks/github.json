@@ -1,0 +1,55 @@
+[
+    {
+        "description": "Get Events for atkinsonbg",
+        "url": "/api/v3/users/atkinsonbg/events",
+        "method": "GET",
+        "response": {
+            "statuscode": 200,
+            "headers": {
+                "content-type": "application/json"
+            },
+            "body": [
+                {
+                    "id": "63820551",
+                    "type": "PushEvent",
+                    "actor": {
+                        "id": 17645,
+                        "login": "atkinsonbg",
+                        "display_login": "atkinsonbg",
+                        "gravatar_id": "",
+                        "url": "https://github.com/api/v3/users/atkinsonbg",
+                        "avatar_url": ""
+                    },
+                    "repo": {
+                        "id": 1093885,
+                        "name": "atkinsonbg/dotnet_webapi_db_testcontainers",
+                        "url": "https://github.com/api/v3/repos/atkinsonbg/dotnet_webapi_db_testcontainers"
+                    },
+                    "payload": {
+                        "push_id": 30492467,
+                        "size": 1,
+                        "distinct_size": 1,
+                        "ref": "refs/heads/master",
+                        "head": "27711cf8b908653f70350b957984a390807cb7d2",
+                        "before": "d967d021b3635a66250bf71c1b53bbaba5e8009b",
+                        "commits": [
+                            {
+                                "sha": "27711cf8b908653f70350b957984a390807cb7d2",
+                                "author": {
+                                    "email": "email-address-here",
+                                    "name": "Brandon Atkinson"
+                                },
+                                "message": "Refactoring for Commands",
+                                "distinct": true,
+                                "url": "https://github.com/api/v3/repos/atkinsonbg/dotnet_webapi_db_testcontainers/commits/27711cf8b908653f70350b957984a390807cb7d2"
+                            }
+                        ]
+                    },
+                    "public": true,
+                    "created_at": "2021-02-17T16:42:31Z",
+                    "org": {}
+                }
+            ]
+        }
+    }
+]
